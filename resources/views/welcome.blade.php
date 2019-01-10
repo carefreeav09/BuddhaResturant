@@ -27,7 +27,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light" id="site-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">EatWell</a>
+        <a class="navbar-brand" href="/">Buddha Resturant</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
@@ -46,16 +46,24 @@
     </div>
 </nav>
 <!-- END nav -->
-
-<section class="site-cover" style="background-image: url({{asset('images/bg_3.jpg')}});" id="section-home">
-    <div class="container">
+<style>
+    .mask-dark-bg
+    {
+        background: #33333333;
+    }
+</style>
+<section class="site-cover" style="background-image: url({{ Voyager::image( $hero->background ) }});" id="section-home">
+    <div class="mask-dark-bg">
+    <div class="container ">
         <div class="row align-items-center justify-content-center text-center site-vh-100">
             <div class="col-md-12">
-                <h1 class="site-heading site-animate mb-3">Welcome To EatWell</h1>
-                <h2 class="h5 site-subheading mb-5 site-animate">Come and eat well with our delicious &amp; healthy foods.</h2>
-                <p><a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Reservation</a></p>
+                <h1 class="site-heading site-animate mb-3" style="text-shadow: black 2px 2px;">{{$hero->title}}</h1>
+                <h2 class="h5 site-subheading mb-5 site-animate">{{$hero->description}}</h2>
+                <p><a href="https://colorlib.com/" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">
+                        Créer une réservation</a></p>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- END section -->
@@ -64,16 +72,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 site-animate mb-5">
-                <h4 class="site-sub-title">Our Story</h4>
-                <h2 class="site-primary-title display-4">Welcome</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <h4 class="site-sub-title font-weight-bolder">Our Story</h4>
+                <h2 class="site-primary-title display-4">{{$abouts->title}}</h2>
+                <p>{{$abouts->desc}}</p>
 
-                <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <p><a href="#" class="btn btn-secondary btn-lg">Learn More About Us</a></p>
+                <p><a href="#" class="btn btn-danger btn-lg">Learn More About Us</a></p>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-6 site-animate img" data-animate-effect="fadeInRight">
-                <img src="images/about_img_1.jpg" alt="Free Template by colorlib.com" class="img-fluid">
+                <img src="{{ Voyager::image( $abouts->featured_image ) }}" alt="Free Template by colorlib.com" class="img-fluid">
             </div>
         </div>
     </div>
@@ -658,11 +665,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-12 text-center">
-                <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-            </div>
+
         </div>
     </div>
 </footer>
@@ -770,8 +773,6 @@
 <script src="{{asset('js/jquery.animateNumber.min.js')}}"></script>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="{{asset('js/google-map.js')}}"></script>
 
 <script src="{{asset('js/main.js')}}"></script>
 
